@@ -1,0 +1,150 @@
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: none;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.search-suggestions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-suggestions li {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.search-suggestions li:last-child {
+    border-bottom: none;
+}
+
+.search-suggestions a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+}
+
+.search-suggestions img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.search-suggestions span {
+    flex: 1;
+}
+
+.search-results {
+    padding: 20px;
+    background: white;
+}
+
+.search-results ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.search-results .product-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.search-results .product-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.search-results .product-info {
+    padding: 15px;
+}
+
+.search-results h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.1em;
+}
+
+.search-results p {
+    margin: 0 0 15px 0;
+    color: #666;
+}
+
+.search-results .btn-ver {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.search-results .btn-ver:hover {
+    background: #0056b3;
+}
+
+/* Estilos para el overlay de búsqueda */
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.95);
+    z-index: 1000;
+    display: none;
+}
+
+.search-overlay.active {
+    display: block;
+}
+
+.search-overlay .close-search {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #333;
+}
+
+.search-overlay form {
+    position: relative;
+    max-width: 600px;
+    margin: 100px auto 0;
+    padding: 0 20px;
+}
+
+.search-overlay input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-overlay input[type="text"]:focus {
+    border-color: #007bff;
+} 

@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- seo -->
+    <title>Rurtools - Nuestros productos</title>
+    <meta name="description" content="" />
+    <meta name="keyword" content=""/>
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="2023/pics/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="2023/pics/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="2023/pics/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="2023/pics/favicon/site.html" />
+    <link rel="mask-icon" href="2023/pics/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- opengraph -->
+    <meta property="og:title" content="Lüsqtoff - Nuestros productos" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="//www.lusqtoff.com.ar/" />
+    <meta property="og:url" content="//www.lusqtoff.com.ar/" />
+    <meta property="og:description" content="" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,600;0,800;1,200;1,400;1,600;1,800&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet" />
+
+    <!-- font-awesome -->
+    <link href="2023/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="2023/css/brands.min.css" rel="stylesheet" />
+    <link href="2023/css/solid.min.css" rel="stylesheet" />
+
+    <!-- css -->
+    <link href="2023/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" rel="stylesheet" />
+    <link href="2023/css/flickity.css" rel="stylesheet" />
+    <link href="2023/css/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="2023/css/common.minf700.css?v=1.0.1" rel="stylesheet" />
+
+    <!-- scripts -->
+    <script src="2023/js/jquery.min.js"></script>
+    <script src="2023/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="2023/js/jquery.matchHeight.js"></script>
+    <script src="2023/js/categorias.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z9QC1CBCH6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Z9QC1CBCH6');
+    </script>
+</head>
+<body>
+    <!-- header -->
+    <header>
+      <a class="brand" href="home.html">
+        <img src="../2023/uploads/rur-imagenes/logo_rur.png" alt="Rurtools" class="img-fluid" />
+      </a>
+
+      <!-- nav -->
+      <nav>
+        <a href="../ver-productos.html">Productos</a>
+        <a href="../donde-comprar.html">Dónde comprar</a>
+        <!-- <a href="servicios-tecnicos.html">Servicios técnicos</a> -->
+        <!-- <a href="http://b2blusqtoff.kiri.cc/" target="_blank">Ingreso clientes</a> -->
+        <!-- <a href="capacitaciones.html">Capacitaciones</a> -->
+        <a href="../nosotros.html">Nosotros</a>
+
+        <button class="btn-nav" type="button">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <button class="btn-search" type="button">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </nav>
+    </header>
+
+    <!-- search-overlay -->
+    <div class="search-overlay">
+      <button class="f-button close-search" title="Close">
+        <svg tabindex="-1" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m19.5 4.5-15 15M4.5 4.5l15 15"></path></svg>
+      </button>
+
+      <div class="container">
+        <form action="../ver-productos.html" method="get">
+          <div class="input-group">
+            <input type="text" class="form-control" id="search-input" name="s" placeholder="Buscar producto o categoría..." />
+            <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- nav-overlay -->
+    <div class="nav-overlay">
+      <button class="f-button close-nav" title="Close">
+        <svg tabindex="-1" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m19.5 4.5-15 15M4.5 4.5l15 15"></path></svg>
+      </button>
+
+      <nav>
+        <a class="tone-2" href="../home.html">Inicio</a>
+        <a class="tone-3" href="../ver-productos.html">Productos</a>
+        <a class="tone-2" href="../donde-comprar.html">Dónde comprar</a>
+        <a class="tone-4" href="../servicios-tecnicos.html">Servicios técnicos</a>
+        <a class="tone-3" href="../nosotros.html">Nosotros</a>
+        <a class="tone-5" href="../capacitaciones.html">Capacitaciones</a>
+        <a class="tone-2" href="../catalogos.html">Catálogos</a>
+        <a class="tone-4" href="../quiero-ser-cliente.html">Quiero ser cliente</a>
+        <a class="tone-3" href="../posventa.html">Posventa</a>
+        <a class="tone-2" href="../contacto.html">Contacto</a>
+      </nav>
+
+      <div class="footer">
+        <a href="https://www.instagram.com/Rurtools/" target="_blank">
+          <i class="fa-brands fa-instagram fa-fw"></i>
+        </a>
+        <a href="https://www.tiktok.com/@Rurtools" target="_blank">
+          <i class="fa-brands fa-tiktok fa-fw"></i>
+        </a>
+        <a href="https://www.facebook.com/lusqtoff/" target="_blank">
+          <i class="fa-brands fa-facebook fa-fw"></i>
+        </a>
+        <a href="https://www.youtube.com/user/Rurtools" target="_blank">
+          <i class="fa-brands fa-youtube fa-fw"></i>
+        </a>
+        <a href="https://ar.linkedin.com/company/Rurtools" target="_blank">
+          <i class="fa-brands fa-linkedin fa-fw"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- section-hero -->
+    <section class="section-hero bg-orange">
+      <img src="" alt="" class="img-fluid d-none d-md-block" />
+      <img src="" alt="" class="img-fluid d-md-none" />
+    </section>
+
+    <!-- products -->
+    <section class="section bg-white">
+      <div class="container">
+        <div class="product-page">
+          <!-- El contenido del producto se cargará dinámicamente aquí -->
+        </div>
+      </div>
+    </section>
+
+    <!-- related-products -->
+    <section id="productos-relacionados" class="section bg-orange bg-dots">
+      <div class="container">
+        <h3 class="color-white">Productos relacionados</h3>
+        <div class="row">
+          <!-- Los productos relacionados se cargarán dinámicamente aquí -->
+        </div>
+      </div>
+    </section>
+
+    <!-- banners -->
+    <!-- <section class="section wtb" style="background-image:url('2023/uploads/Banners/BANNER%20TRUPER-.jpg')">
+      <div class="container text-center">
+        <h2 class="mb-5 color-white"></h2>
+        <a href="https://www.lusqtoff.com.ar/truper/" class="btn btn-outline-light">conocé la línea completa</a>
+      </div>
+    </section> -->
+
+    <section class="section wtb" style="background-image:url('2023/uploads/Banners/banner-dondecomprar.jpg')">
+      <div class="container text-center">
+        <h2 class="mb-5 color-white">Encontrá dónde comprar nuestros productos</h2>
+        <a href="../donde-comprar.html" class="btn btn-outline-light">Ver mapa</a>
+      </div>
+    </section>
+
+    <section class="section wtb" style="background-image:url('2023/uploads/Banners/banner-serviciostecnicos.jpg')">
+      <div class="container text-center">
+        <h2 class="mb-5 color-white">Encontrá nuestros servicios técnicos oficiales</h2>
+        <a href="../servicios-tecnicos.html" class="btn btn-outline-light">Ver mapa</a>
+      </div>
+    </section>
+
+    <!-- shortcuts -->
+    <section class="shortcuts">
+      <a href="quiero-ser-cliente.html">
+        <img src="2023/uploads/Shortcuts/icon-store.svg" alt="Quiero ser cliente" class="img-fluid" />
+        <span>Quiero ser cliente</span>
+      </a>
+      <a href="donde-comprar.html">
+        <img src="2023/uploads/Shortcuts/icon-truck.svg" alt="Dónde comprar" class="img-fluid" />
+        <span>Dónde comprar</span>
+      </a>
+      <a href="sumate-al-equipo.html">
+        <img src="2023/uploads/Shortcuts/icon-team.svg" alt="Sumate al equipo" class="img-fluid" />
+        <span>Sumate al equipo</span>
+      </a>
+      <a href="contacto.html">
+        <img src="2023/uploads/Shortcuts/icon-mail.svg" alt="Contacto" class="img-fluid" />
+        <span>Contacto</span>
+      </a>
+      <!-- <a href="http://b2blusqtoff.kiri.cc/">
+        <img src="2023/uploads/Shortcuts/icon-login.svg" alt="Ingreso clientes" class="img-fluid" />
+        <span>Ingreso clientes</span>
+      </a> -->
+    </section>
+
+    <!-- truper -->
+    <!-- <section>
+      <div class="container text-center">
+        <a href="https://www.lusqtoff.com.ar/truper/" target="_blank">
+          <img src="2023/pics/truper-logo.png" alt="Truper" width="300" class="img-fluid" />
+        </a>
+      </div>
+    </section> -->
+
+    <!-- footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-lg-3">
+            <h5>Seguinos</h5>
+            <nav class="social">
+              <a href="https://www.instagram.com/Rurtools/" target="_blank">
+                <i class="fa-brands fa-instagram fa-fw"></i> Instagram
+              </a>
+              <a href="https://www.tiktok.com/@Rurtools" target="_blank">
+                <i class="fa-brands fa-tiktok fa-fw"></i> Tik Tok
+              </a>
+              <a href="https://www.facebook.com/Rurtools/" target="_blank">
+                <i class="fa-brands fa-facebook fa-fw"></i> Facebook
+              </a>
+              <a href="https://www.youtube.com/user/Rurtools" target="_blank">
+                <i class="fa-brands fa-youtube fa-fw"></i> Youtube
+              </a>
+              <a href="https://ar.linkedin.com/company/Rurtools-argentina-s.a." target="_blank">
+                <i class="fa-brands fa-linkedin fa-fw"></i> Linkedin
+              </a>
+            </nav>
+            <div class="separator"></div>
+          </div>
+
+          <div class="col-md-8 col-lg-6">
+            <h5>Mapa de sitio</h5>
+            <div class="row">
+              <div class="col-md-6">
+                <nav>
+                  <a href="home.html">Inicio</a>
+                  <a href="ver-productos.html">Productos</a>
+                  <a href="donde-comprar.html">Dónde comprar</a>
+                  <a href="servicios-tecnicos.html">Servicios técnicos</a>
+                  <a href="capacitaciones.html">Capacitaciones</a>
+                  <a href="catalogos.html">Catálogos</a>
+                </nav>
+              </div>
+              <div class="col-md-6">
+                <nav>
+                  <a href="nosotros.html">Nosotros</a>
+                  <a href="quiero-ser-cliente.html">Quiero Suscribirme</a>
+                  <!-- <a href="sumate-al-equipo.html">Sumate al equipo</a> -->
+                  <!-- <a href="posventa.html">Posventa</a> -->
+                  <a href="contacto.html">Contacto</a>
+                  <!-- <a href="http://b2blusqtoff.kiri.cc/" target="_blank" class="color-orange">Ingreso clientes</a> -->
+                </nav>
+              </div>
+            </div>
+            <div class="separator"></div>
+          </div>
+
+          <div class="col-lg-3">
+            <h5>Nosotros</h5>
+            <p>
+              <a href="mailto:info@Rurtools.com.ar">info@lusqtoff.com.ar</a>
+            </p>
+            <p>
+              <a href="https://goo.gl/maps/ZkFsSGvdUXv3XFSc7" target="_blank">
+                2 de Abril 1911,<br>
+                Paso del Rey, Buenos Aires
+              </a>
+            </p>
+
+            <h5 class="mt-4">Posventa</h5>
+            <p>
+              <a href="mailto:asistenciatecnica@Rurtools.com.ar">asistenciatecnica@Rurtools.com.ar</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>
+</html> 
