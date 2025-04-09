@@ -215,56 +215,7 @@
   <section class="hero">
     <div class="swiper" data-swiper="hero">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="./2023/uploads/rur-imagenes/barn-images-t5YUoHW6zRo-unsplash.jpg" alt="Ecoline"
-            class="img-fluid d-none d-md-block" />
-          <img src="./2023/uploads/rur-imagenes/welding-7609553_1920.jpg" alt="Ecoline"
-            class="img-fluid d-md-none" />
-        </div>
-        <div class="swiper-slide">
-          <a href="home.html">
-            <img src="./2023/uploads/rur-imagenes/christopher-burns-8KfCR12oeUM-unsplash.jpg" alt="Ecoline"
-            class="img-fluid d-none d-md-block" />
-          <img src="./2023/uploads/rur-imagenes/view-steel-hammer-with-other-construction-elements-tools.jpg" alt="Ecoline"
-            class="img-fluid d-md-none" />
-          </a>
-        </div>
-        <div class="swiper-slide">
-          <a href="home.html">
-            <img src="./2023/uploads/rur-imagenes/christopher-burns-Wiu3w-99tNg-unsplash.jpg" alt="Ecoline"
-            class="img-fluid d-none d-md-block" />
-          <img src="./2023/uploads/rur-imagenes/tools-4475133_1920.jpg" alt="Ecoline"
-            class="img-fluid d-md-none" />
-          </a>
-        </div>
-        <div class="swiper-slide">
-          <a href="home.html">
-            <img src="./2023/uploads/rur-imagenes/dmitriy-demidov-bPEiM19e_Qo-unsplash.jpg" alt="Ecoline"
-            class="img-fluid d-none d-md-block" />
-          <img src="./2023/uploads/rur-imagenes/pexels-cottonbro-4489719.jpg" alt="Ecoline"
-            class="img-fluid d-md-none" />
-          </a>
-        </div>
-        <div class="swiper-slide">
-          <img src="./2023/uploads/rur-imagenes/imattsmart-sm0Bkoj5bnA-unsplash.jpg" alt="Ecoline"
-            class="img-fluid d-none d-md-block" />
-          <img src="./2023/uploads/rur-imagenes/kumpan-electric-uFxb0WD0waw-unsplash.jpg" alt="Ecoline"
-            class="img-fluid d-md-none" />
-          </a>
-        </div>
-        <div class="swiper-slide">
-          <img src="./2023/uploads/rur-imagenes/maxime-agnelli-QC1oHW5JVu4-unsplash.jpg" alt="Ecoline"
-            class="img-fluid d-none d-md-block" />
-          <img src="./2023/uploads/rur-imagenes/man-fixing-motorcycle-modern-workshop.jpg" alt="Ecoline"
-            class="img-fluid d-md-none" />
-          </a>
-        </div>
-        <div class="swiper-slide">
-          <img src="./2023/uploads/rur-imagenes/simone-impei-eZaKj3xAzTE-unsplash.jpg" alt="Ecoline"
-            class="img-fluid d-none d-md-block" />
-          <img src="./2023/uploads/rur-imagenes/front-view-woman-working-with-drill.jpg" alt="Ecoline"
-            class="img-fluid d-md-none" />
-        </div>
+        <!-- Los slides se cargarán dinámicamente desde la API -->
       </div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
@@ -306,12 +257,7 @@
     </section><!-- ./instagram -->
 
     <!-- banners -->
-    <!-- <section class="section wtb" style="background-image:url('./2023/uploads/Banners/BANNER%20TRUPER-.jpg')">
-      <div class="container text-center">
-        <h2 class="mb-5 color-white"></h2>
-        <a href="https://www.lusqtoff.com.ar/truper/" class="btn btn-outline-light">conocé la línea completa</a>
-      </div>
-    </section> -->
+    
     <section class="section wtb" style="background-image:url('./2023/uploads/rur-imagenes/robert-zunikoff-xZzRMSAe3I4-unsplash (1).jpg')">
       <div class="container text-center">
         <h2 class="mb-5 color-white">Encontrá dónde comprar nuestros productos</h2>
@@ -528,6 +474,77 @@
     <script type="text/javascript" src="./2023/js/matchHeight-min.js"></script>
     <script type="text/javascript" src="./2023/js/typeahead.bundle.min.js"></script>
     <script type="text/javascript" src="./2023/js/common.js"></script>
+
+    <!-- Script para cargar banners desde la API -->
+    <script type="text/javascript">
+      // Función para cargar los banners desde la API
+      function cargarBannersDesdeAPI() {
+        // Referencia al contenedor del slider
+        const swiperWrapper = document.querySelector('.swiper[data-swiper="hero"] .swiper-wrapper');
+        
+        // Si no encontramos el contenedor, salimos
+        if (!swiperWrapper) return;
+        
+        // Limpiamos el contenedor antes de agregar nuevos slides
+        swiperWrapper.innerHTML = '';
+        
+        // Realizamos la petición a la API
+        fetch('https://rurtools.com.ar/admin/Api/Banners', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Verificamos si tenemos datos
+          if (data && data.length > 0) {
+            // Creamos un slide por cada banner
+            data.forEach(banner => {
+              const slide = document.createElement('div');
+              slide.className = 'swiper-slide';
+              
+              // Creamos el contenido del slide
+              slide.innerHTML = `
+                <a href="${banner.link}">
+                  <img src="https://rurtools.com.ar/admin/images/${banner.foto_web}" 
+                       alt="${banner.descripcion}" 
+                       class="img-fluid d-none d-md-block" />
+                  <img src="https://rurtools.com.ar/admin/images/${banner.foto_movil}" 
+                       alt="${banner.descripcion}" 
+                       class="img-fluid d-md-none" />
+                </a>
+              `;
+              
+              // Agregamos el slide al contenedor
+              swiperWrapper.appendChild(slide);
+            });
+            
+            // Reiniciamos el swiper para que reconozca los nuevos slides
+            const heroSwiper = document.querySelector('.swiper[data-swiper="hero"]').swiper;
+            if (heroSwiper) {
+              heroSwiper.update();
+            }
+          }
+        })
+        .catch(error => {
+          console.error('Error al cargar los banners:', error);
+          // En caso de error, mostramos un mensaje de error simple
+          swiperWrapper.innerHTML = `
+            <div class="swiper-slide">
+              <div class="d-flex align-items-center justify-content-center" style="height: 300px; background-color: #f8f9fa;">
+                <p class="text-center">No se pudieron cargar los banners. Intente más tarde.</p>
+              </div>
+            </div>
+          `;
+        });
+      }
+      
+      // Ejecutamos la función cuando el DOM esté cargado
+      document.addEventListener('DOMContentLoaded', function() {
+        cargarBannersDesdeAPI();
+      });
+    </script>
 
 
 </body>
