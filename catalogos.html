@@ -213,30 +213,8 @@
           <h1 class="color-white">Catálogos</h1>
         </div>
 
-        <div class="row">
-
-                      <div class="col-6 col-lg-4">
-              <a href="" class="cat-link" target="_blank">
-                <div class="image" style="background-image:url('./2023/uploads/rur-imagenes/mostafa-mahmoudi-oJbJhppwpXE-unsplash.jpg');"></div>
-                <div class="name">Catálogo rurtools 2024</div>
-                <div class="dots"></div>
-              </a>
-            </div>
-                      <div class="col-6 col-lg-4">
-              <a href="" class="cat-link" target="_blank">
-                <div class="image" style="background-image:url('./2023/uploads/rur-imagenes/mostafa-mahmoudi-oJbJhppwpXE-unsplash.jpg');"></div>
-                <div class="name">Catálogo rurtools 2024</div>
-                <div class="dots"></div>
-              </a>
-            </div>
-                      <div class="col-6 col-lg-4">
-              <a href="" class="cat-link" target="_blank">
-                <div class="image" style="background-image:url('./2023/uploads/rur-imagenes/mostafa-mahmoudi-oJbJhppwpXE-unsplash.jpg');"></div>
-                <div class="name">Catálogo rurtools 2024</div>
-                <div class="dots"></div>
-              </a>
-            </div>
-          
+        <div class="row" id="catalogos-container">
+          <!-- Los catálogos se cargarán dinámicamente desde la API -->
         </div>
 
       </div>
@@ -377,6 +355,73 @@
 <script type="text/javascript" src="2023/js/matchHeight-min.js"></script>
 <script type="text/javascript" src="2023/js/typeahead.bundle.min.js"></script>
 <script type="text/javascript" src="2023/js/common.js"></script>
+
+<!-- Script para cargar catálogos desde la API -->
+<script type="text/javascript">
+  // Función para cargar los catálogos desde la API
+  function cargarCatalogosDesdeAPI() {
+    // Referencia al contenedor de catálogos
+    const catalogosContainer = document.getElementById('catalogos-container');
+    
+    // Si no encontramos el contenedor, salimos
+    if (!catalogosContainer) return;
+    
+    // Limpiamos el contenedor antes de agregar nuevos catálogos
+    catalogosContainer.innerHTML = '';
+    
+    // Realizamos la petición a la API
+    fetch('https://rurtools.com.ar/admin/Api/Catalogos', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Verificamos si tenemos datos
+      if (data && data.length > 0) {
+        // Creamos un elemento por cada catálogo
+        data.forEach(catalogo => {
+          const catalogoElement = document.createElement('div');
+          catalogoElement.className = 'col-6 col-lg-4';
+          
+          // Creamos el contenido del catálogo
+          catalogoElement.innerHTML = `
+            <a href="https://rurtools.com.ar/admin/catalogos/${catalogo.pdf}" class="cat-link" target="_blank">
+              <div class="image" style="background-image:url('https://rurtools.com.ar/admin/images/${catalogo.imagenMiniatura}');"></div>
+              <div class="name">${catalogo.descripcion}</div>
+              <div class="dots"></div>
+            </a>
+          `;
+          
+          // Agregamos el catálogo al contenedor
+          catalogosContainer.appendChild(catalogoElement);
+        });
+      } else {
+        // Si no hay catálogos, mostramos un mensaje
+        catalogosContainer.innerHTML = `
+          <div class="col-12 text-center">
+            <p class="color-white">No hay catálogos disponibles en este momento.</p>
+          </div>
+        `;
+      }
+    })
+    .catch(error => {
+      console.error('Error al cargar los catálogos:', error);
+      // En caso de error, mostramos un mensaje
+      catalogosContainer.innerHTML = `
+        <div class="col-12 text-center">
+          <p class="color-white">No se pudieron cargar los catálogos. Intente más tarde.</p>
+        </div>
+      `;
+    });
+  }
+  
+  // Ejecutamos la función cuando el DOM esté cargado
+  document.addEventListener('DOMContentLoaded', function() {
+    cargarCatalogosDesdeAPI();
+  });
+</script>
 
 
 </body>
