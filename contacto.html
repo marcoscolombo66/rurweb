@@ -39,7 +39,7 @@
 
     <!-- css -->
     <link href="2023/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../cdn.jsdelivr.net/npm/%40fancyapps/ui%405.0/dist/fancybox/fancybox.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" rel="stylesheet" />
     <link href="2023/css/flickity.css" rel="stylesheet" />
     <link href="2023/css/swiper-bundle.min.css" rel="stylesheet" />
     <link href="2023/css/common.minf700.css?v=1.0.1" rel="stylesheet" />
@@ -110,9 +110,7 @@
       <nav>
         <a href="ver-productos.html">Productos</a>
         <a href="donde-comprar.html">Dónde comprar</a>
-        <!-- <a href="servicios-tecnicos.html">Servicios técnicos</a> -->
-        <!-- <a href="http://b2blusqtoff.kiri.cc/" target="_blank">Ingreso clientes</a> -->
-        <!-- <a href="capacitaciones.html">Capacitaciones</a> -->
+        
         <a href="nosotros.html">Nosotros</a>
 
         <button class="btn-nav" type="button">
@@ -159,14 +157,7 @@
         <svg tabindex="-1" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m19.5 4.5-15 15M4.5 4.5l15 15"></path></svg>
       </button>
 
-      <!--<div class="header">
-        <a class="brand" href="./">
-          <img src="./2023/uploads/rur-imagenes/logo_rur.png" alt="Lusqtoff" class="img-fluid" />
-        </a>
-        <a class="close-nav" href="#">
-          <i class="fa-solid fa-xmark"></i>
-        </a>
-      </div>-->
+      
 
       <nav>
         <a class="tone-2" href="home.html">Inicio</a>
@@ -330,20 +321,9 @@
       <img src="2023/uploads/Shortcuts/icon-mail.svg" alt="Contacto" class="img-fluid" />
       <span>Contacto</span>
     </a>
-      <!-- <a href="http://b2blusqtoff.kiri.cc/">
-      <img src="2023/uploads/Shortcuts/icon-login.svg" alt="Ingreso clientes" class="img-fluid" />
-      <span>Ingreso clientes</span>
-    </a> -->
+     
   </section><!-- ./shortcuts -->
 
-<!-- truper -->
-<!-- <section>
-  <div class="container text-center">
-    <a href="https://www.lusqtoff.com.ar/truper/" target="_blank">
-      <img src="2023/pics/truper-logo.png" alt="Truper" width="300" class="img-fluid" />
-    </a>
-  </div> -->
-<!-- </section>./truper -->
 
  <!-- footer -->
  <footer>
@@ -384,10 +364,9 @@
             <nav>
               <a href="nosotros.html">Nosotros</a>
               <a href="quiero-ser-cliente.html">Quiero Suscribirme</a>
-              <!-- <a href="sumate-al-equipo.html">Sumate al equipo</a> -->
-              <!-- <a href="posventa.html">Posventa</a> -->
+      
               <a href="contacto.html">Contacto</a>
-              <!-- <a href="http://b2blusqtoff.kiri.cc/" target="_blank" class="color-orange">Ingreso clientes</a> -->
+              
             </nav>
           </div>
         </div>
@@ -397,7 +376,7 @@
       <div class="col-lg-3">
         <h5>Nosotros</h5>
         <p>
-          <a href="mailto:info@lusqtoff.com.ar">info@rurtools.com.ar</a>
+          <a href="mailto:info@rurtools.com.ar">info@rurtools.com.ar</a>
         </p>
         <p>
           <a href="https://maps.app.goo.gl/aUfA5HrQNicpRwJz8" target="_blank">
@@ -423,14 +402,257 @@
 <!-- js -->
 <script type="text/javascript" src="2023/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="2023/js/jquery.min.js"></script>
-<script type="text/javascript" src="../cdn.jsdelivr.net/npm/%40fancyapps/ui%405.0/dist/fancybox/fancybox.umd.js"></script>
-<script type="text/javascript" src="http://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript" src="2023/js/flickity.pkgd.min.js"></script>
 <script type="text/javascript" src="2023/js/swiper-bundle.min.js"></script>
 <script type="text/javascript" src="2023/js/matchHeight-min.js"></script>
 <script type="text/javascript" src="2023/js/typeahead.bundle.min.js"></script>
 <script type="text/javascript" src="2023/js/common.js"></script>
 
+<!-- Form processing scripts -->
+<script type="text/javascript" src="2023/js/form-validation.js"></script>
+<script type="text/javascript" src="2023/js/form-states.js"></script>
+<script type="text/javascript" src="2023/js/form-storage.js"></script>
+<script type="text/javascript" src="2023/js/form-accessibility.js"></script>
+<script type="text/javascript" src="2023/js/form-security.js"></script>
+
+<script type="text/javascript">
+  // Inicializar formulario de contacto
+  document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.querySelector('form[action*="form-contacto"]');
+    
+    if (contactForm) {
+      // Inicializar componentes del formulario
+      const formId = 'contact-form';
+      contactForm.id = formId;
+      
+      // Variable para controlar envíos múltiples
+      let isSubmitting = false;
+      
+      // Inicializar validación
+      const validator = new FormValidator(formId);
+      
+      // Inicializar estados de UI
+      const formStates = new FormStates(formId);
+      
+      // Inicializar almacenamiento local
+      const formStorage = new FormStorage(formId);
+      
+      // Inicializar accesibilidad
+      const formAccessibility = new FormAccessibility(formId);
+      
+      // Inicializar seguridad
+      const formSecurity = new FormSecurity(formId);
+      
+      // Sobreescribir el comportamiento predeterminado
+      contactForm.onsubmit = async function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Evitar envíos múltiples
+        if (isSubmitting) {
+          console.log('Formulario ya está siendo enviado, ignorando acción duplicada');
+          return false;
+        }
+        
+        // Limpiar mensajes previos
+        const prevMessages = contactForm.querySelectorAll('.form-status-message, .form-response-message, .alert');
+        prevMessages.forEach(el => el.remove());
+        
+        // Validar formulario
+        if (!validator.validateContactForm()) {
+          formStates.showError('Por favor, completa correctamente todos los campos obligatorios.');
+          return false;
+        }
+        
+        // Marcar como en proceso de envío
+        isSubmitting = true;
+        
+        // Mostrar estado de carga
+        formStates.showLoading();
+        
+        try {
+          // Obtener todos los valores del formulario
+          const formData = {
+            mensaje: document.getElementById('form-message').value,
+            telefono: document.getElementById('form-phone').value,
+            nombreApellido: document.getElementById('form-name').value,
+            direccion: document.getElementById('form-address').value,
+            localidad: document.getElementById('form-city').value,
+            provincia: document.getElementById('form-state').value,
+            email: document.getElementById('form-mail').value
+          };
+          
+          // Modo debug/pruebas - Activar si necesitas ver el JSON antes de enviar
+          if (false) { // Cambiar a true si deseas probar
+            console.log('JSON que se enviará:', JSON.stringify(formData, null, 2));
+            if (window.confirm('¿Deseas probar sin enviar?')) {
+              formStates.showSuccess('¡Prueba exitosa! No se han enviado datos reales.');
+              return false;
+            }
+          }
+          
+          console.log('Enviando datos a la API:', formData);
+          
+          // Primero intentar con application/json
+          console.log('Intentando con formato JSON...');
+          let response = await fetch('https://rurtools.com.ar/admin/Api/sendEmail', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+              'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify(formData),
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin'
+          });
+          
+          // Si falla, intentar con x-www-form-urlencoded
+          if (response.status === 400) {
+            console.log('JSON falló con 400, intentando con formato form-data...');
+            
+            // Crear un FormData object
+            const formUrlEncoded = new URLSearchParams();
+            Object.keys(formData).forEach(key => {
+              formUrlEncoded.append(key, formData[key]);
+            });
+            
+            response = await fetch('https://rurtools.com.ar/admin/Api/sendEmail', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+              },
+              body: formUrlEncoded,
+              mode: 'cors',
+              cache: 'no-cache',
+              credentials: 'same-origin'
+            });
+          }
+          
+          // Si aún falla, intentar con multipart/form-data
+          if (response.status === 400) {
+            console.log('form-urlencoded falló con 400, intentando con multipart/form-data...');
+            
+            const multipartFormData = new FormData();
+            Object.keys(formData).forEach(key => {
+              multipartFormData.append(key, formData[key]);
+            });
+            
+            response = await fetch('https://rurtools.com.ar/admin/Api/sendEmail', {
+              method: 'POST',
+              // No establecer Content-Type para que el navegador configure el boundary correcto
+              headers: {
+                'Accept': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+              },
+              body: multipartFormData,
+              mode: 'cors',
+              cache: 'no-cache',
+              credentials: 'same-origin'
+            });
+          }
+          
+          console.log('Respuesta final de fetch:', response);
+          
+          if (response.ok) {
+            console.log('¡Respuesta exitosa! Código de estado:', response.status);
+            
+            // Clonar la respuesta antes de intentar leerla como JSON
+            let responseClone;
+            try {
+              responseClone = response.clone();
+              
+              // Intentar parsear como JSON
+              const responseData = await response.json();
+              console.log('Datos de respuesta JSON:', responseData);
+            } catch (jsonError) {
+              console.log('La respuesta no es JSON válido, pero la operación fue exitosa');
+              
+              try {
+                // Verificar si la clonación se realizó correctamente
+                if (responseClone) {
+                  const responseText = await responseClone.text();
+                  console.log('Respuesta como texto (primeros 100 caracteres):', 
+                            responseText.substring(0, 100) + '...');
+                } else {
+                  console.error('No se pudo clonar la respuesta para lectura como texto');
+                }
+              } catch (textError) {
+                console.error('Error al obtener texto:', textError);
+              }
+            }
+            
+            // Mostrar mensaje de éxito y limpiar formulario
+            formStates.showSuccess('¡Gracias por contactarnos! Te responderemos a la brevedad.');
+            formStorage.clearSavedData();
+            contactForm.reset();
+          } else {
+            // La respuesta no fue exitosa
+            console.error('Error en la respuesta:', response.status, response.statusText);
+            
+            let errorMessage = 'Ha ocurrido un error al procesar tu solicitud. Por favor, intenta nuevamente más tarde.';
+            // Clonar la respuesta antes de intentar leerla como JSON
+            let errorResponseClone;
+            try {
+              errorResponseClone = response.clone();
+              
+              // Intentar obtener mensaje de error como JSON
+              const errorData = await response.json();
+              console.log('Datos de error JSON:', errorData);
+              
+              if (errorData && errorData.message) {
+                errorMessage = errorData.message;
+              }
+            } catch (jsonError) {
+              console.error('El error no es JSON válido:', jsonError);
+              
+              try {
+                // Verificar si la clonación se realizó correctamente
+                if (errorResponseClone) {
+                  const errorText = await errorResponseClone.text();
+                  console.log('Error como texto (primeros 100 caracteres):', 
+                           errorText.substring(0, 100) + '...');
+                } else {
+                  console.error('No se pudo clonar la respuesta de error para lectura como texto');
+                }
+              } catch (textError) {
+                console.error('No se pudo leer el error como texto:', textError);
+              }
+            }
+            
+            // Mostrar el mensaje de error
+            formStates.showError(errorMessage);
+            
+            // Ofrecer alternativa de correo electrónico
+            if (window.confirm('Parece que hay un problema con nuestro sistema. ¿Deseas enviar tu mensaje por correo electrónico?')) {
+              const mailtoLink = `mailto:info@rurtools.com.ar?subject=Contacto%20web&body=Nombre:%20${encodeURIComponent(formData.nombreApellido)}%0A%0ADirección:%20${encodeURIComponent(formData.direccion)}%0A%0ALocalidad:%20${encodeURIComponent(formData.localidad)}%0A%0AProvincia:%20${encodeURIComponent(formData.provincia)}%0A%0ATeléfono:%20${encodeURIComponent(formData.telefono)}%0A%0AEmail:%20${encodeURIComponent(formData.email)}%0A%0AMensaje:%20${encodeURIComponent(formData.mensaje)}`;
+              window.open(mailtoLink);
+            }
+          }
+        } catch (error) {
+          // Capturar cualquier error no manejado
+          console.error('Error general en el procesamiento:', error);
+          formStates.showError('Ha ocurrido un error inesperado. Por favor, intenta nuevamente más tarde.');
+        } finally {
+          // Restaurar formulario
+          formStates.hideLoading();
+          
+          // Reset el estado de envío
+          setTimeout(() => {
+            isSubmitting = false;
+          }, 1000);
+        }
+        
+        return false;
+      };
+    }
+  });
+</script>
 
 </body>
 
