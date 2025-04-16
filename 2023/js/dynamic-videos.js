@@ -39,7 +39,7 @@ class DynamicVideos {
                 return;
             }
             
-            // Realizar petición a la API
+            // Realizar petición a la API de videos
             const response = await fetch(this.apiUrl, {
                 method: 'POST',
                 headers: {
@@ -89,18 +89,8 @@ class DynamicVideos {
                 swiperWrapper.appendChild(slide);
             });
             
-            // Si hay un enlace al canal de YouTube en la página, actualizarlo
-            const youtubeChannelLink = document.querySelector('a.btn.btn-outline-dark[href*="youtube.com"]');
-            if (youtubeChannelLink && data[0].linkvideo) {
-                // Extraer el canal de YouTube del primer video
-                const youtubeUrl = new URL(data[0].linkvideo);
-                const channelPath = youtubeUrl.hostname.includes('youtube') ? 
-                    `/channel/${youtubeUrl.pathname.split('/')[2]}` : 
-                    youtubeUrl.pathname.split('/shorts')[0];
-                
-                const channelUrl = `https://www.youtube.com${channelPath}`;
-                youtubeChannelLink.href = channelUrl;
-            }
+            // Actualizar el enlace al canal de YouTube con el de la API de Datos
+            this.updateYoutubeChannelLink();
             
             console.log(`Se cargaron ${data.length} videos desde la API`);
             
@@ -115,6 +105,46 @@ class DynamicVideos {
             
         } catch (error) {
             console.error('Error al cargar videos desde la API:', error);
+        }
+    }
+    
+    // Actualizar el enlace al canal de YouTube usando la API de Datos
+    async updateYoutubeChannelLink() {
+        try {
+            // Obtener el enlace de YouTube de la API de Datos
+            const response = await fetch('https://rurtools.com.ar/admin/Api/Datos', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (!response.ok) {
+                throw new Error(`Error al obtener datos: ${response.status} ${response.statusText}`);
+            }
+            
+            const data = await response.json();
+            
+            if (!data || !data.length || !data[0].youtube) {
+                console.warn('No se encontró la URL de YouTube en la API de Datos');
+                return;
+            }
+            
+            // Obtener el enlace de YouTube
+            const youtubeUrl = data[0].youtube;
+            
+            // Actualizar todos los enlaces al canal de YouTube
+            const youtubeChannelLinks = document.querySelectorAll('a.btn[href*="youtube.com"]');
+            youtubeChannelLinks.forEach(link => {
+                if (link.textContent.toLowerCase().includes('youtube')) {
+                    link.href = youtubeUrl;
+                    console.log('Enlace al canal de YouTube actualizado con la URL de la API de Datos:', youtubeUrl);
+                }
+            });
+            
+        } catch (error) {
+            console.error('Error al actualizar el enlace al canal de YouTube:', error);
         }
     }
 }
