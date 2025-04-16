@@ -79,6 +79,10 @@ class DynamicFooter {
             this.updateContactInfo(storeData);
             this.updateWhatsApp(storeData);
             
+            // Actualizar enlaces de redes sociales en todo el sitio
+            this.updateYouTubeLinks(storeData);
+            this.updateInstagramLinks(storeData);
+            
         } catch (error) {
             console.error('Error al cargar datos para el footer:', error);
         }
@@ -166,6 +170,40 @@ class DynamicFooter {
                     link.innerHTML = `${data.direccion},<br>${data.ciudad}`;
                 }
             });
+        }
+    }
+    
+    // Actualizar enlaces de YouTube en todo el sitio
+    updateYouTubeLinks(data) {
+        // Verificar si tenemos una URL de YouTube
+        if (data.youtube && data.youtube.trim() !== '') {
+            // Buscar todos los enlaces a YouTube en el sitio
+            const youtubeLinks = document.querySelectorAll('a[href*="youtube.com"]');
+            
+            // Actualizar cada enlace encontrado
+            youtubeLinks.forEach(link => {
+                // Preservar atributos originales como data-fancybox, class, etc.
+                link.href = data.youtube;
+            });
+            
+            console.log(`Se actualizaron ${youtubeLinks.length} enlaces de YouTube con la URL: ${data.youtube}`);
+        }
+    }
+    
+    // Actualizar enlaces de Instagram en todo el sitio
+    updateInstagramLinks(data) {
+        // Verificar si tenemos una URL de Instagram
+        if (data.instagram && data.instagram.trim() !== '') {
+            // Buscar todos los enlaces a Instagram en el sitio
+            const instagramLinks = document.querySelectorAll('a[href*="instagram.com"]');
+            
+            // Actualizar cada enlace encontrado
+            instagramLinks.forEach(link => {
+                // Preservar atributos originales como target, class, etc.
+                link.href = data.instagram;
+            });
+            
+            console.log(`Se actualizaron ${instagramLinks.length} enlaces de Instagram con la URL: ${data.instagram}`);
         }
     }
     
