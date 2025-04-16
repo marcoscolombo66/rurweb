@@ -76,7 +76,7 @@ class DynamicVideos {
                 
                 // Crear enlace con la URL del video
                 slide.innerHTML = `
-                    <a href="${video.linkvideo}" data-fancybox class="thumb-link video">
+                    <a href="${video.linkvideo}" data-fancybox class="thumb-link video" target="_blank" rel="noopener">
                         <div class="video-thumbnail" style="background-image: url('${thumbnailUrl}');">
                             <div class="video-play-icon">
                                 <i class="fa-solid fa-play"></i>
